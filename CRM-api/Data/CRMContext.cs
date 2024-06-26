@@ -10,9 +10,6 @@ namespace CRM_api.Data
         public DbSet<Project> Projects { get; set; }
 
         public CRMContext(DbContextOptions<CRMContext> options) : base(options) 
-        {
-            
-        }
-
+        {}
     }
 }
