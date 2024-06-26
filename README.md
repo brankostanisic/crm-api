@@ -10,7 +10,8 @@
       ```Update-Databse```
       
    Otherwise you can run the dotnet ef tool through the terminal while located in the application directory:
-      ```dotnet ef database update```
+      ```dotnet ef database update```.
+      
    If necessary first install it using:
       ```dotnet tool install --global dotnet-ef --version 8.*```
       
