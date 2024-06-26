@@ -1,7 +1,7 @@
 # Requierements for running the API:
 
 ##  Docker Desktop
-   After running Docker Desktop the following line should be executed inside the PowerShell terminal to set up the MS SQL Server database:
+   After running Docker Desktop the following line should be executed inside the terminal to set up the MS SQL Server database:
       ```
       docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Password@123" -p 1433:1433 --name crm --hostname crm -d mcr.microsoft.com/mssql/server:2022-latest
       ```
