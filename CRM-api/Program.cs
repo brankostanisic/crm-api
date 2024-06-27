@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CRM_api.Data;
 using Microsoft.OpenApi.Writers;
+using CRM_api.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CRMContext>(options =>

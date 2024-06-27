@@ -4,6 +4,7 @@ using CRM_api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRM_api.Migrations
 {
     [DbContext(typeof(CRMContext))]
-    partial class CRMContextModelSnapshot : ModelSnapshot
+    [Migration("20240627131247_Adding project list to user")]
+    partial class Addingprojectlisttouser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace CRM_api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CRM_api.Entities.Project", b =>
+            modelBuilder.Entity("CRM_api.Models.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,6 +37,7 @@ namespace CRM_api.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -54,7 +58,7 @@ namespace CRM_api.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("CRM_api.Entities.User", b =>
+            modelBuilder.Entity("CRM_api.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,14 +87,16 @@ namespace CRM_api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CRM_api.Entities.Project", b =>
+            modelBuilder.Entity("CRM_api.Models.Project", b =>
                 {
-                    b.HasOne("CRM_api.Entities.User", null)
+                    b.HasOne("CRM_api.Models.User", "User")
                         .WithMany("Projects")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CRM_api.Entities.User", b =>
+            modelBuilder.Entity("CRM_api.Models.User", b =>
                 {
                     b.Navigation("Projects");
                 });

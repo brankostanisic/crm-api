@@ -1,4 +1,4 @@
-﻿using CRM_api.Models;
+﻿using CRM_api.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRM_api.Data
