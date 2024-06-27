@@ -15,7 +15,6 @@ namespace CRM_api.Controllers
     public class ProjectsController : ControllerBase
     {
         private readonly CRMContext _context;
-        private UsersController _usersController;
 
         public ProjectsController(CRMContext context)
         {
